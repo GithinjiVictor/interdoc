@@ -1,0 +1,20 @@
+# Environment secrets
+app/.env
+.env
+
+# Virtual environment
+app/venv/
+venv/
+
+# Databases & local data
+data/
+data/chroma_db/
+
+# Python cache files
+__pycache__/
+*.pyc
+app/__pycache__/
+
+# OS files
+.DS_Store
+Thumbs.db
