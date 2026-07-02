@@ -1,10 +1,18 @@
 from pydantic import BaseModel 
 from fastapi import FastAPI, UploadFile, File 
+from fastapi.middleware.cors import CORSMiddleware
 from app.ingestion import extract_text, chunk_text
 from app.vectorstore import add_chunks,search_chunks
 from app.rag import generate_answer
 
 app = FastAPI(title="Document Intelligence API")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 class QueryRequest(BaseModel):
     question: str
